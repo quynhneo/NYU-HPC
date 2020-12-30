@@ -11,20 +11,20 @@ in a log-in node:
 $cd project_folder
 ```
 
-Copy the proper gzipped overlay images from `/scratch/work/public/overlay-fs-ext3/`. There are many overlay images to choose from, different by capacity and number of files it can contain. For example, `overlay-5GB-200K.ext3.gz` is good enough for most conda environments, it has 5GB free space inside and is able to hold 200K files:
+Copy the proper gzipped overlay images from `/scratch/work/public/overlay-fs-ext3/`. There are many overlay images to choose from, different by capacity and number of files it can contain. For example, `overlay-5GB-200K.ext3.gz` is good enough for most conda environments.
 ```
 $cp -rp /scratch/work/public/overlay-fs-ext3/overlay-5GB-200K.ext3.gz .
 $gunzip overlay-5GB-200K.ext3.gz
 ```
 Choose a proper singularity image from `/scratch/work/public/singularity/`. The image names suggest what have been prebuilt into it, and version of the OS. For example, for CUDA on ubuntu18.04: `/scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif`
 
-
-To setup conda enviorment, first launch container interactively: 
+Launch container interactively: 
 
 ```
 $singularity exec --overlay overlay-5GB-200K.ext3 /scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif /bin/bash
 ```
-Now you are inside the container (notice the change of the prompt). You shouldn't use `module load` now, as that's for the host system. It's better to install your package inside Singularity container. To install miniconda into /ext3/miniconda3:
+Now you are inside the container - a fresh system and you can install anything you want (notice the change of the prompt). You shouldn't use `module load` now, as that's for the host system. It's better to install your package inside Singularity container, either manually or using package managers such as conda or pip.
+Let's go through an example with conda. First, install miniconda into /ext3/miniconda3:
 ```
 Singularity> wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 Singularity> sh Miniconda3-latest-Linux-x86_64.sh -b -p /ext3/miniconda3
@@ -56,7 +56,7 @@ For example, using conda to create a virtual env, and install packaged contained
 ```
 Singularity> conda create --name myenv --file requirements.txt 
 ```
-Now everything is ready. Conda environment named `myenv` has been installed **inside** the singularity container. This ensure that your inode quota is not consumed, and the environment is exactly reproducible.
+Now everything is ready. Conda environment named `myenv` has been created **inside** the singularity container, and all packages listed in `requirements.txt` have been installed. This ensure that your inode quota is not consumed, and the environment is exactly reproducible.
 To run `myscript.py`, there are now two options: interactive running (good for testing, debugging, short jobs), and batch job good for real and longer jobs. 
 ## Interactive mode
 From a log in node, request a computing node with gpu:
