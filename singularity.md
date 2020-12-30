@@ -1,6 +1,6 @@
 # Instruction for using Singularity on HPC
-This guide specially applicable for the Greene HPC Cluster of New York University, but should be generally applicable for HPC clusters.
-For general HPC users, the prerequisites are:
+This guide is especially applicable for the Greene HPC Cluster of New York University, but should be generally applicable for HPC clusters.
+The prerequisites are:
 - Having access to a cluster 
 - The cluster uses Singularity container 
 - Having singularity images and overlay files prebuilt 
@@ -11,7 +11,7 @@ in a log-in node:
 $cd project_folder
 ```
 
-Copy the proper gzipped overlay images from `/scratch/work/public/overlay-fs-ext3/`. There are many overlay images to choose from, different by capacity and number of files it can contain. For example, `overlay-5GB-200K.ext3.gz` is good enough for most conda environments.
+Copy the proper gzipped overlay images from `/scratch/work/public/overlay-fs-ext3/`. There are many overlay images to choose from, different by capacity and number of files they can contain. For example, `overlay-5GB-200K.ext3.gz` is good enough for most conda environments.
 ```
 $cp -rp /scratch/work/public/overlay-fs-ext3/overlay-5GB-200K.ext3.gz .
 $gunzip overlay-5GB-200K.ext3.gz
