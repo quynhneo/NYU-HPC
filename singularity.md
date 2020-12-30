@@ -108,3 +108,5 @@ check the stdout result:
 $cat slurm_jobid.out
 ```
 
+## Acknowledgement
+Thanks NYU HPC team for support.
