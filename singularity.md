@@ -24,7 +24,7 @@ To setup conda enviorment, first launch container interactively:
 ```
 $singularity exec --overlay overlay-5GB-200K.ext3 /scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif /bin/bash
 ```
-Inside the container, install miniconda into /ext3/miniconda3:
+Now you are inside the container (notice the change of the prompt). You shouldn't use `module load` now, as that's for the host system. It's better to install your package inside Singularity container. To install miniconda into /ext3/miniconda3:
 ```
 Singularity> wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 Singularity> sh Miniconda3-latest-Linux-x86_64.sh -b -p /ext3/miniconda3
@@ -51,12 +51,12 @@ Singularity> python --version
 Python 3.8.5
 ```
 
-Now install packages into this base environment either with pip or conda.
-For example, using conda to create a virtual env:
+Now you install packages into this base environment either with pip or conda as usual.
+For example, using conda to create a virtual env, and install packaged contained in `requirements.txt`:
 ```
 Singularity> conda create --name myenv --file requirements.txt 
 ```
-Now everything is ready. Conda environment named `myenv` has been installed ***inside** the singularity container. This ensure that your inode quota is not consumed, and the environment is exact.
+Now everything is ready. Conda environment named `myenv` has been installed **inside** the singularity container. This ensure that your inode quota is not consumed, and the environment is exactly reproducible.
 To run `myscript.py`, there are now two options: interactive running (good for testing, debugging, short jobs), and batch job good for real and longer jobs. 
 ## Interactive mode
 From a log in node, request a computing node with gpu:
