@@ -66,6 +66,7 @@ $srun --cpus-per-task=20 --gres=gpu:1 --nodes 1 --mem=50GB --time=7-00:00:00 --p
 ```
 In the computing node:
 ```
+$cd project_folder
 $singularity exec --overlay overlay-5GB-200K.ext3 /scratch/work/public/singularity/cuda10.1-cudnn7-devel-ubuntu18.04.sif /bin/bash
 Singularity> source /ext3/env.sh
 Singularity> conda activate myenv
