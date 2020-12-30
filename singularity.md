@@ -1,4 +1,4 @@
-# Instruction for running DETM on HPC cluster with CUDA, slurm and singularity
+# Instruction for using Singularity on HPC
 This guide specially applicable for the Greene HPC Cluster of New York University, but should be generally applicable for HPC clusters.
 For general HPC users, the prerequisites are:
 - Having access to a cluster 
@@ -11,14 +11,13 @@ in a log-in node:
 $cd project_folder
 ```
 
-Copy the proper gzipped overlay images from `/scratch/work/public/overlay-fs-ext3`. For example, `overlay-5GB-200K.ext3.gz` is good enough for most conda environments, it has 5GB free space inside and is able to hold 200K files:
+Copy the proper gzipped overlay images from `/scratch/work/public/overlay-fs-ext3/`. There are many overlay images to choose from, different by capacity and number of files it can contain. For example, `overlay-5GB-200K.ext3.gz` is good enough for most conda environments, it has 5GB free space inside and is able to hold 200K files:
 ```
 $cp -rp /scratch/work/public/overlay-fs-ext3/overlay-5GB-200K.ext3.gz .
 $gunzip overlay-5GB-200K.ext3.gz
 ```
-Choose a proper singularity image. For PyTorch, use:
+Choose a proper singularity image from `/scratch/work/public/singularity/`. The image names suggest what have been prebuilt into it, and version of the OS. For example, for CUDA on ubuntu18.04: `/scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif`
 
-`/scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif`
 
 To setup conda enviorment, first launch container interactively: 
 
