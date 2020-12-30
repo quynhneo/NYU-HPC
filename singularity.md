@@ -52,11 +52,11 @@ Python 3.8.5
 ```
 
 Now you install packages into this base environment either with pip or conda as usual.
-For example, using conda to create a virtual env, and install packaged contained in `requirements.txt`:
+For example, using conda to create a virtual env, and install packaged listed in `requirements.txt`:
 ```
 Singularity> conda create --name myenv --file requirements.txt 
 ```
-Now everything is ready. Conda environment named `myenv` has been created **inside** the singularity container, and all packages listed in `requirements.txt` have been installed. This ensure that your inode quota is not consumed, and the environment is exactly reproducible.
+Now everything is ready. Conda environment named `myenv` has been created **inside** the singularity container, and all packages listed in `requirements.txt` have been installed. This ensure that your inode quota is not consumed, and the environment is exactly reproducible. You can change the overlay file name to something else to reflect its installed packages.
 To run `myscript.py`, there are now two options: interactive running (good for testing, debugging, short jobs), and batch job good for real and longer jobs. 
 ## Interactive mode
 From a log in node, request a computing node with gpu:
