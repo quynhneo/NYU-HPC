@@ -2,7 +2,8 @@
 Handy scripts and other useful tricks to run jobs on high performance computing Greene cluster at New York University (but should be applicable elsewhere)
 
 **Singularity**
-To use Singularity, see [singularity.md](https://github.com/quynhneo/NYU-HPC/blob/main/singularity.md)
+Singularity is similar to Docker container, allows OS level virtualization.
+To see example of using Singularity, installing conda env in a container, submit the job with slurm, see [singularity.md](https://github.com/quynhneo/NYU-HPC/blob/main/singularity.md)
 
 **How to have frequent output from SLURM**
 
