@@ -85,13 +85,13 @@ Make a script such as `slurm.s` below and modify directory as needed
 #SBATCH --mail-user=your_email_address
 #SBATCH --output=slurm_%j.out
 
-cd /scratch/$USER/DETM
-overlay_ext3=/scratch/$USER/DETM/overlay-5GB-200K.ext3
+cd /scratch/$USER/project_folder
+overlay_ext3=/scratch/$USER/project_folder/overlay-5GB-200K.ext3
 singularity \
 exec --nv --overlay $overlay_ext3 \
 /scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif /bin/bash \
 -c "source /ext3/env.sh; \
-conda activate detm; \
+conda activate project_env; \
 python myscript.py"
 ```
 to submit, from a log in node:
