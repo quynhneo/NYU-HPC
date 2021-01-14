@@ -92,7 +92,7 @@ exec --nv --overlay $overlay_ext3 \
 /scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif /bin/bash \
 -c "source /ext3/env.sh; \
 conda activate project_env; \
-python myscript.py"
+python project_script.py"
 ```
 to submit, from a log in node:
 ```
