@@ -13,6 +13,7 @@ To fix this, modify print statement in python from `print(something)` to `print(
 reference: see a comment in https://stackoverflow.com/questions/25170763/how-to-change-how-frequently-slurm-updates-the-output-file-stdout
 
 **Squash**
+
 Squash file system allows compressing a folder containing a large number of file into a .sqf file, which then can be mounted like a partition (think of a DVD).
 This is useful for decreasing inode number, and data is read only. 
 
