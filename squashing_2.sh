@@ -1,3 +1,4 @@
+# 
 # script to squash every sub-sub directory (depth=3) of pwd, name 4 characters 
 # long (matching the 'YYMM' format), into sqf files
 # mksquashfs automatically use all available processors
