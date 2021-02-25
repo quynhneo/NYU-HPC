@@ -7,12 +7,12 @@ for d in $(find . -maxdepth 3 -mindepth 3 -name '????' ) ; do  #select only fold
 		echo "the folder has been squashed. Skipping"
 	else
 		echo "the folder has not been squashed. Squashing..."
-		#if mksquashfs $d "${d%/}.sqf" -keep-as-directory ; then 
-			#echo "squashing succeeded, deleting source"
+		if mksquashfs $d "${d%/}.sqf" -keep-as-directory ; then 
+			echo "squashing succeeded, deleting source"
 			#rm -r $d #remove this line if unwanted!!!!
-		#else
-			#echo "squashing failed"
-		#fi
+		else
+			echo "squashing failed"
+		fi
 	fi
 		
 done
