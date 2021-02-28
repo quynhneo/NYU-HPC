@@ -56,6 +56,11 @@ For example, using conda to create a virtual env, and install packaged listed in
 ```
 Singularity> conda create --name myenv --file requirements.txt 
 ```
+What if some packages are not available through `conda`? You can use `pip` inside `conda` env though not recommended.
+```
+conda install pip 
+/ext3/miniconda3/envs/myenv/bin/pip install -r requirements.txt
+```
 Now everything is ready. Conda environment named `myenv` has been created **inside** the singularity container, and all packages listed in `requirements.txt` have been installed. This ensure that your inode quota is not consumed, and the environment is exactly reproducible. You can change the overlay file name to something else to reflect its installed packages.
 To run `myscript.py`, there are now two options: interactive running (good for testing, debugging, short jobs), and batch job good for real and longer jobs. 
 ## Interactive mode
