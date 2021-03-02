@@ -23,7 +23,7 @@ Launch container interactively:
 ```
 $singularity exec --overlay overlay-5GB-200K.ext3 /scratch/work/public/singularity/cuda11.0-cudnn8-devel-ubuntu18.04.sif /bin/bash
 ```
-Now you are inside the container - a fresh system and you can install anything you want (notice the change of the prompt). You shouldn't use `module load` now, as that's for the host system. It's better to install your package inside Singularity container, either manually or using package managers such as conda or pip.
+Now you are inside the container - a fresh system and you can install anything you want (notice the change of the prompt). You shouldn't use `module load` now, as that's for the host system. It's better to install your package inside Singularity container, either manually or using package managers such as conda or pip. %GB and 200K inode counts are now available in `/ext3` mounted at root. 
 Let's go through an example with conda. First, install miniconda into /ext3/miniconda3:
 ```
 Singularity> wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
